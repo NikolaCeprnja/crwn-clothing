@@ -12,7 +12,6 @@ import {
 	CartDropdownButton,
 	EmptyMessage
 } from './cart-dropdown.styles';
-import CustomButton from '../custom-button/custom-buttom.component';
 import CartItem from '../cart-item/cart-item.component';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
