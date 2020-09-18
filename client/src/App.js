@@ -11,9 +11,11 @@ import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shoppage/shoppage.component';
 import SignUpAndSignInPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import SignUp from './components/sign-up/sign-up.component';
 import CheckoutPage from './pages/checkoutpage/checkoutpage.component';
 
-import './App.css';
+import { GlobalStyle } from './global.styles';
+
 const App = ({ currentUser, setCurrentUser }) => {
 	useEffect(
 		() => {
@@ -42,6 +44,7 @@ const App = ({ currentUser, setCurrentUser }) => {
 
 	return (
 		<div>
+			<GlobalStyle />
 			<Header />
 			<Switch>
 				<Route exact path='/' component={HomePage} />
@@ -51,6 +54,7 @@ const App = ({ currentUser, setCurrentUser }) => {
 					path='/signin'
 					render={() => (currentUser ? <Redirect to='/' /> : <SignUpAndSignInPage />)}
 				/>
+				<Route exact path='/signup' render={() => (currentUser ? <Redirect to='/' /> : <SignUp />)} />
 				<Route exact path='/checkout' component={CheckoutPage} />
 			</Switch>
 		</div>

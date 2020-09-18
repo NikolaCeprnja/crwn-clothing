@@ -12,6 +12,14 @@ export const CheckoutPageContainer = styled.div`
 		margin-left: auto;
 		margin-top: 50px;
 	}
+
+	@media screen and (max-width: 800px) {
+		width: unset;
+
+		button {
+			margin: 50px auto;
+		}
+	}
 `;
 
 export const CheckoutHeaderContainer = styled.div`
@@ -29,12 +37,26 @@ export const HeaderBlock = styled.div`
 	&:last-child {
 		width: 8%;
 	}
+
+	@media screen and (max-width: 800px) {
+		width: 25%;
+		padding-left: 14px;
+
+		&:last-child {
+			width: 16%;
+			padding-left: 0;
+		}
+	}
 `;
 
 export const TotalPrice = styled.div`
 	margin-top: 30px;
 	margin-left: auto;
 	font-size: 36px;
+
+	@media screen and (max-width: 800px) {
+		margin-left: unset;
+	}
 `;
 
 export const TestWarning = styled.div`

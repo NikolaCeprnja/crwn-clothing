@@ -6,7 +6,6 @@ import { createStructuredSelector } from 'reselect';
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
 import { selectShopCollections } from '../../redux/shop/shop.selectors';
 
-import { ShopPageContainer } from './shoppage.styles';
 import CollectionPageContainer from '../../pages/collectionpage/collectionpage.container';
 import CollectionsOverviewContainer from '../../components/collection-overview/collections-overview.container';
 
@@ -21,10 +20,10 @@ const ShopPage = ({ fetchCollectionsStartAsync, collections, match }) => {
 	);
 
 	return (
-		<ShopPageContainer>
+		<div>
 			<Route exact path={`${match.url}`} component={CollectionsOverviewContainer} />
 			<Route exact path={`${match.url}/:collectionUrlParam`} component={CollectionPageContainer} />
-		</ShopPageContainer>
+		</div>
 	);
 };
 

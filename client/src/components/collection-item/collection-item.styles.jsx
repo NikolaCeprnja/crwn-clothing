@@ -37,6 +37,28 @@ export const CollectionItemContainer = styled.div`
 			opacity: 0.85;
 		}
 	}
+
+	@media screen and (max-width: 800px) {
+		width: 40vw;
+		margin-bottom: 30px;
+
+		${CustomButtonContainer} {
+			display: block;
+			opacity: 0.9;
+			min-width: unset;
+			padding: 0 10px;
+		}
+
+		&:hover {
+			${BackgorundImageContainer} {
+				opacity: unset;
+			}
+
+			${CustomButtonContainer} {
+				opacity: 0.9;
+			}
+		}
+	}
 `;
 
 export const CollectionFooterContainer = styled.div`

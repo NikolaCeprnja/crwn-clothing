@@ -14,9 +14,14 @@ export const CollectionTitle = styled.h2`
 export const CollectionItemsContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	gap: 10px;
+	gap: 35px;
 
 	& > div {
 		margin-bottom: 30px;
+	}
+
+	@media screen and (max-width: 800px) {
+		grid-template-columns: 1fr 1fr;
+		gap: 15px;
 	}
 `;

@@ -37,4 +37,10 @@ export const QuantityContainer = styled(TextContainer)`
 export const RemoveButton = styled.span`
 	padding-left: 15px;
 	cursor: pointer;
+
+	@media screen and (max-width: 800px) {
+		padding-left: unset;
+		position: relative;
+		right: 9px;
+	}
 `;
