@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
 import { selectShopCollections } from '../../redux/shop/shop.selectors';
 
-import CollectionPageContainer from '../../pages/collectionpage/collectionpage.container';
-import CollectionsOverviewContainer from '../../components/collection-overview/collections-overview.container';
+import Spinner from '../../components/spinner/spinner.component';
+import ErrorPage from '../errorpage/errorpage.component';
+const CollectionPageContainer = lazy(() => import('../../pages/collectionpage/collectionpage.container'));
+const CollectionsOverviewContainer = lazy(() =>
+	import('../../components/collection-overview/collections-overview.container')
+);
 
 const ShopPage = ({ fetchCollectionsStartAsync, collections, match }) => {
 	useEffect(
@@ -21,8 +25,17 @@ const ShopPage = ({ fetchCollectionsStartAsync, collections, match }) => {
 
 	return (
 		<div>
-			<Route exact path={`${match.url}`} component={CollectionsOverviewContainer} />
-			<Route exact path={`${match.url}/:collectionUrlParam`} component={CollectionPageContainer} />
+			<Suspense fallback={<Spinner />}>
+				<Switch>
+					<Route exact path={`${match.url}`} component={CollectionsOverviewContainer} />
+					<Route
+						exact
+						path={`${match.url}/:collectionUrlParam`}
+						component={CollectionPageContainer}
+					/>
+					<Route component={ErrorPage} />
+				</Switch>
+			</Suspense>
 		</div>
 	);
 };
