@@ -10,6 +10,7 @@ import App from './App';
 import { store, persistor } from './redux/store';
 
 import './index.css';
+import * as serviceWorker from './serviceWorker';
 
 dotenv.config();
 
@@ -23,3 +24,5 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById('root')
 );
+
+serviceWorker.register();
